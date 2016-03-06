@@ -14,13 +14,13 @@
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
 			<?php 
 			
-				if(isset($_SESSION['username']))
+				if(isset($_SESSION['nomadmin']))
 				{
-					echo $_SESSION['username'];
+					echo $_SESSION['nomadmin'];
 				}
 				else
 				{
-					echo "unregistered user";
+					echo "admin inconnu";
 				}
 			?><b class="caret"></b>
 			</a>
