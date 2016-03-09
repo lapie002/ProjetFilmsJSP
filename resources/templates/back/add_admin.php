@@ -18,7 +18,7 @@
 
      <div class="form-group">
       <label for="imageProfil">Profile Image</label>
-      <input type="file" name="imageProfil">
+      <input type="file" name="file">
          
      </div>
 
