@@ -62,15 +62,8 @@
             </li>
             <!-- Pour Admin -->
             <li>
-            <a href="javascript:;" data-toggle="collapse" data-target="#admin"><i class="fa fa-fw fa-user fa-lg"></i> Admin<i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="admin" class="collapse">
-                            <li>
-                                <a href="index.php?admins"><i class="fa fa-fw fa-user"></i> View Admin</a>
-                            </li>
-                            <li>
-                                <a href="index.php?add_actor"><i class="fa fa-fw fa-plus-square"></i> Add an Admin</a>
-                            </li>
-                        </ul>
+                <a href="index.php?admins"><i class="fa fa-fw fa-user"></i>Admin</a>
+            </li>
             </li>
             <!-- Pour Orders -->
 			<li class="">

@@ -326,55 +326,55 @@ DELIMETER;
  
  /***************** Users in Admin section **********************/
  
-  function display_users()
+  function display_admins()
  {
-	$query = "SELECT * FROM administrateurs";
-	$users_query = query($query);
-	confirm($users_query);
+	$query = "SELECT * FROM ADMINISTRATEUR";
+	$admins_query = query($query);
+	confirm($admins_query);
 	
-	while($row = fetch_array($users_query))
+	while($row = fetch_array($admins_query))
 	{
-		$user_id = $row['idAdmin'];
-		$username = $row['nomAdmin'];
-		$email = $row['email'];
-		$password = $row['motdepasse'];
-		$profile_image = display_image($row['imageProfil']);
+		$admin_id = $row['IDADMIN'];
+		$adminName = $row['NOMADMIN'];
+		$email = $row['EMAIL'];
+		$motdepasse = $row['MOTDEPASSE'];
+		$profile_image = display_image($row['IMAGEPROFIL']);
 		
-		$users = <<<DELIMETER
+		$admins = <<<DELIMETER
 		
 		<tr>
-            <td>{$user_id}</td>
-            <td>{$username}</td>
+            <td>{$admin_id}</td>
+            <td>{$adminName}</td>
 			<td><img height="62" width="62" src="../../resources/{$profile_image}" alt=""></td>
 			<td>{$email}</td>
-			<td><a class="btn btn-danger" href="../../resources/templates/back/delete_user.php?id={$row['user_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
+			<td><a class="btn btn-danger" href="../../resources/templates/back/delete_admin.php?id={$row['IDADMIN']}"><span class="glyphicon glyphicon-remove"></span></a></td>
         </tr>
 DELIMETER;
 		
-	echo $users;
+	echo $admins;
 	}
  }
  
  
- function add_user()
+ function add_admin()
  {
-	if(isset($_POST['add_user']))
+	if(isset($_POST['add_admin']))
 	{
-		$username = escape_string($_POST['username']);
+		$nomadmin = escape_string($_POST['nomadmin']);
 		$email = escape_string($_POST['email']);
-		$password = escape_string($_POST['password']);
+		$motdepasse = escape_string($_POST['motdepasse']);
 		
 		$profile_image        = $_FILES['file']['name'];
 		$image_temp_location  = $_FILES['file']['tmp_name'];
 		
 		move_uploaded_file($image_temp_location, UPLOAD_DIRECTORY . DS . $profile_image);
 		
-		$query = query("INSERT INTO users(username,email,password,profile_image) VALUES('{$username}','{$email}','{$password}','{$profile_image}')");
+		$query = query("INSERT INTO administrateur(nomadmin,email,motdepasse,imageprofil) VALUES('{$nomadmin}','{$email}','{$motdepasse}','{$profile_image}')");
 		confirm($query);
 		
 		set_message("Profile created.");
 		
-		redirect("index.php?users");
+		redirect("index.php?admins");
 	}
  }
  

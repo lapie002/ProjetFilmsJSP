@@ -60,13 +60,13 @@ redirect("../../index.php");
 					{
 							include(TEMPLATE_BACK . DS . "/categories.php");
 					}
-					if(isset($_GET['users']))
+					if(isset($_GET['admins']))
 					{
-							include(TEMPLATE_BACK . DS . "/users.php");
+							include(TEMPLATE_BACK . DS . "/admins.php");
 					}
-					if(isset($_GET['add_user']))
+					if(isset($_GET['add_admin']))
 					{
-							include(TEMPLATE_BACK . DS . "/add_user.php");
+							include(TEMPLATE_BACK . DS . "/add_admin.php");
 					}
 					if(isset($_GET['edit_user']))
 					{
