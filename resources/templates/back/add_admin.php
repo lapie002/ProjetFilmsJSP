@@ -1,6 +1,6 @@
 <?php add_admin(); ?>
   <h1 class="page-header">
-      Add Admin
+      Add Administrator
       <small>Page</small>
   </h1>
 

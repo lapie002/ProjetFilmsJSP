@@ -276,55 +276,55 @@ function update_product()
  }
  
  
- /********************** Categories in Admin **************************/
+ /********************** Genres in Admin **************************/
  
- function show_categories_in_admin()
+ function show_genres_in_admin()
  {
-	$query = "SELECT * FROM categories";
-	$category_query = query($query);
-	confirm($category_query);
+	$query = "SELECT * FROM GENRE";
+	$genre_query = query($query);
+	confirm($genre_query);
 	
-	while($row = fetch_array($category_query))
+	while($row = fetch_array($genre_query))
 	{
-		$cat_id = $row['cat_id'];
-		$cat_title = $row['cat_title'];
+		$genre_id = $row['IDGENRE'];
+		$nom_genre = $row['NOMGENRE'];
 		
-		$category = <<<DELIMETER
+		$genre = <<<DELIMETER
 		
 		<tr>
-            <td>{$cat_id}</td>
-            <td>{$cat_title}</td>
-			<td><a class="btn btn-danger" href="../../resources/templates/back/delete_category.php?id={$row['cat_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
+            <td>{$genre_id}</td>
+            <td>{$nom_genre}</td>
+			<td><a class="btn btn-danger" href="../../resources/templates/back/delete_genre.php?id={$row['IDGENRE']}"><span class="glyphicon glyphicon-remove"></span></a></td>
         </tr>
 DELIMETER;
 		
-	echo $category;
+	echo $genre;
 	}
  }
  
- function add_category()
+ function add_genre()
  {
-	if(isset($_POST['add_category']))
+	if(isset($_POST['add_genre']))
 	{
-		$cat_title = escape_string($_POST['cat_title']);
+		$nom_genre = escape_string($_POST['nomgenre']);
 		
-		if(empty($cat_title) || $cat_title == " ")
+		if(empty($nom_genre) || $nom_genre == " ")
 		{
-			echo "<p class='bg-danger' align='center'>this field cannot be empty.</p>";
+			echo "<p class='bg-danger' align='center'>Le champ Genre ne peut pas être vide.</p>";
 		}
 		else
 		{
-			$insert_cat = query("INSERT INTO categories(cat_title) Values('{$cat_title}')");
-			confirm($insert_cat);
+			$insert_genre = query("INSERT INTO genre(NOMGENRE) Values('{$nom_genre}')");
+			confirm($insert_genre);
 
-			set_message("Category created.");
+			set_message("Genre created.");
 		}
 	}
  }
  
  
  
- /***************** Users in Admin section **********************/
+ /***************** Admin in Admin section **********************/
  
   function display_admins()
  {

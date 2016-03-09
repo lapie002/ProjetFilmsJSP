@@ -26,15 +26,7 @@
             </li>
             <!-- Pour Genre -->
             <li>
-            <a href="javascript:;" data-toggle="collapse" data-target="#genre"><i class="fa fa-fw fa-tags fa-lg"></i> Genre<i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="genre" class="collapse">
-                            <li>
-                                <a href="index.php?genres"><i class="fa fa-fw fa-tags"></i> Genre</a>
-                            </li>
-                            <li>
-                                <a href="index.php?add_genre"><i class="fa fa-fw fa-plus-square"></i> Add a Genre</a>
-                            </li>
-                        </ul>
+                <a href="index.php?genres"><i class="fa fa-fw fa-tags"></i> Genre</a>
             </li>
             <!-- Pour Director -->
             <li>

@@ -56,9 +56,9 @@ redirect("../../index.php");
 					{
 							include(TEMPLATE_BACK . DS . "/edit_product.php");
 					}
-					if(isset($_GET['categories']))
+					if(isset($_GET['genres']))
 					{
-							include(TEMPLATE_BACK . DS . "/categories.php");
+							include(TEMPLATE_BACK . DS . "/genres.php");
 					}
 					if(isset($_GET['admins']))
 					{
