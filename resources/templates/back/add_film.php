@@ -40,7 +40,10 @@
 
       <div class="col-xs-6">
         <label for="product-price">Film Price</label>
+        <div class="form-group input-group">  
+        <span class="input-group-addon"><i class="fa fa-eur"></i></span>
         <input type="number" name="PRIXFILMLOCATION" class="form-control" size="60">
+        </div>
       </div>
 	  
 	  <div class="col-xs-6">
@@ -51,9 +54,9 @@
     
     <div class="form-group row">
         <div class="col-xs-12">
-            <!-- Film Genres-->
+            <!-- Film Actors a Modifier -->
             <div class="form-group">
-                <label for="product-title">Film Genre</label>
+                <label for="product-title">Actors</label>
                 <select name="IDGENRE" id="" class="form-control" multiple>
                     <option value="">Select Genre</option>
                     <?php show_genres_add_film_page();  ?>
@@ -83,7 +86,7 @@
     <!-- Film Realisateurs-->
     <div class="form-group">
       <label for="product-title">Film Director</label>
-         <select name="IDREALISATEUR" id="" class="form-control" multiple>
+         <select name="IDREALISATEUR" id="" class="form-control">
             <option value="">Select Director</option>
              <?php show_genres_add_film_page();  ?>
          </select>
@@ -100,7 +103,7 @@
     
     
     <div class="form-group">
-            <input type="submit" name="draft" class="btn btn-warning btn-lg" value="Draft">
+            <!-- <input type="submit" name="draft" class="btn btn-warning btn-lg" value="Draft"> -->
             <input type="submit" name="publish" class="btn btn-primary btn-lg" value="Publish">
     </div>
     
