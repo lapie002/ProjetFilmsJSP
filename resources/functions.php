@@ -83,7 +83,7 @@ function last_id()
 		
 		if(mysqli_num_rows($query) == 0)
 		{
-			set_message("Il y a eu un probleme avec votre connexion. Entrez votre login et votre mot de passe à nouveau !");
+			set_message("Il y a eu un problème avec votre connexion. Entrez votre login et votre mot de passe à nouveau !");
 			redirect("login.php");
 		}
 		else
@@ -97,33 +97,6 @@ function last_id()
 
  /******************************** BACK END FUNCTION **************************/
  
- //function to display orders in the admin panel 
- function display_orders()
- {
-	 $query = query("SELECT * FROM orders");
-	 confirm($query);
-	 
-	 while($row = fetch_array($query))
-	 {
-		$orders = <<<DELIMETER
-		
-		<tr>
-            <td>{$row['order_id']}</td>
-            <td>{$row['order_amount']}</td>
-            <td>{$row['order_transaction']}</td>
-            <td>{$row['order_status']}</td>
-			<td>{$row['order_currency']}</td>
-			<td><a class="btn btn-danger" href="../../resources/templates/back/delete_order.php?id={$row['order_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
-        </tr>
-		
-DELIMETER;
-
-		echo $orders;
-	 }
- 
- }
- 
-
 //function to display nomgenre in film in the admin panel 
  function show_film_genre_title($genre_id)
  {
@@ -172,7 +145,7 @@ DELIMETER;
 	}	
  }
  
-  /*******************************Add products in Admin *****************/
+  /*******************************Add Films in Admin *****************/
  
  function add_film()
  {
@@ -229,58 +202,9 @@ echo $genres_options;
  
  
  
-/*******************************Edit product in Admin *****************/
+/*******************************Edit Film in Admin *****************/
  
-function update_product()
- {
-	
-	if(isset($_POST['update']))
-	{
-		
-		
-		$product_title        = escape_string($_POST['product_title']);
-		$product_category_id  = escape_string($_POST['product_category_id']);
-		$product_price        = escape_string($_POST['product_price']);
-		$product_quantity     = escape_string($_POST['product_quantity']);
-		$product_description  = escape_string($_POST['product_description']);
-		$short_desc           = escape_string($_POST['short_desc']);
-		
-		$product_image        = $_FILES['file']['name'];
-		$image_temp_location  = $_FILES['file']['tmp_name'];
-		
-	if(empty($product_image))
-	{
-		$get_pic = query("SELECT product_image FROM products WHERE product_id= " . escape_string($_GET['id']) . " ");
-		confirm($get_pic);
-		
-		while($row = fetch_array($get_pic))
-		{
-			$product_image = $row['product_image'];
-		}
-	}
-		
-		
-		move_uploaded_file($image_temp_location  , UPLOAD_DIRECTORY . DS . $product_image);
-		
-		$query = "UPDATE products SET ";
-		$query .= "product_title            = '{$product_title}'        , ";
-		$query .= "product_category_id      = '{$product_category_id}'  , ";
-		$query .= "product_price            = '{$product_price}'        , ";
-		$query .= "product_description      = '{$product_description}'  , ";
-		$query .= "short_desc               = '{$short_desc}'           , ";
-		$query .= "product_quantity         = '{$product_quantity}'     , ";
-		$query .= "product_image            = '{$product_image}'          ";
-		$query .= "WHERE product_id=" . escape_string($_GET['id']);
-		
-		$send_update_query = query($query);
-		confirm($send_update_query);
-		set_message("The product has been updated!");
-		redirect("index.php?products");
-	}
- 
- 
- }
- 
+
  
  /********************** Genres in Admin **************************/
  
