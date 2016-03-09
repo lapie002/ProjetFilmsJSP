@@ -8,7 +8,7 @@
                                 <a href="index.php?prospects"><i class="fa fa-fw fa-user-plus"></i> Request Membership</a>
                             </li>
                             <li>
-                                <a href="index.php?members"><i class="fa fa-fw fa-user"></i> View Members</a>
+                                <a href="index.php?members"><i class="fa fa-fw fa-users"></i> View Members</a>
                             </li>
                         </ul>
             </li>
@@ -17,10 +17,10 @@
             <a href="javascript:;" data-toggle="collapse" data-target="#film"><i class="fa fa-fw fa-film fa-lg"></i> Movies <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="film" class="collapse">
                             <li>
-                                <a href="index.php?movies"><i class="fa fa-fw fa-film"></i> View Movies</a>
+                                <a href="index.php?films"><i class="fa fa-fw fa-film"></i> View Movies</a>
                             </li>
                             <li>
-                                <a href="index.php?add_movie"><i class="fa fa-fw fa-plus-square"></i> Add a Movie</a>
+                                <a href="index.php?add_film"><i class="fa fa-fw fa-plus-square"></i> Add a Movie</a>
                             </li>
                         </ul>
             </li>

@@ -123,18 +123,20 @@ DELIMETER;
  
  }
  
- function show_product_category_title($product_category_id)
+
+//function to display nomgenre in film in the admin panel 
+ function show_film_genre_title($genre_id)
  {
-	$query = query("SELECT * FROM categories WHERE cat_id = '{$product_category_id}' ");
+	$query = query("SELECT * FROM GENRE WHERE IDGENRE = '{$genre_id}' ");
 	confirm($query);
 	
-	while($category_row  = fetch_array($query))
+	while($genre_row  = fetch_array($query))
 	{
-		return $category_row['cat_title'];
+		return $genre_row['NOMGENRE'];
 	}	
  }
  
- /******************************* Admin products.php *****************/
+ /******************************* Admin films.php *****************/
  //function for the image directory 
  function display_image($picture)
  {
@@ -143,29 +145,29 @@ DELIMETER;
  }
  
 
- function get_products_in_admin()
+ function get_films_in_admin()
  {
-	$result = query("SELECT * FROM products");
+	$result = query("SELECT * FROM FILM");
 	confirm($result);
 	
 	while($row = fetch_array($result))
 	{
-		$category = show_product_category_title($row['product_category_id']);
-		$product_image = display_image($row['product_image']);
+		$genre = show_film_genre_title($row['IDGENRE']);
+		$film_image = display_image($row['IMAGEFILM']);
 		
-		$product_in_admin_page = <<<DELIMETER
+		$film_in_admin_page = <<<DELIMETER
 		  <tr>
-		    <td>{$row['product_id']}</td>
-            <td>{$row['product_title']} <br>
-              <a href="index.php?edit_product&id={$row['product_id']}"><img height="62" width="62" src="../../resources/{$product_image}" alt=""></a>
+		    <td>{$row['IDFILM']}</td>
+            <td>{$row['TITREFILM']} <br>
+              <a href="index.php?edit_film&id={$row['IDFILM']}"><img height="62" width="62" src="../../resources/{$film_image}" alt=""></a>
             </td>
-            <td> {$category} </td>
-            <td>{$row['product_price']}</td>
-			<td>{$row['product_quantity']}</td>
-			<td><a class="btn btn-danger" href="../../resources/templates/back/delete_product.php?id={$row['product_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
+            <td> {$genre} </td>
+            <td>{$row['PRIXFILMLOCATION']}</td>
+			<td>{$row['NBEXPDISPFILM']}</td>
+			<td><a class="btn btn-danger" href="../../resources/templates/back/delete_film.php?id={$row['IDFILM']}"><span class="glyphicon glyphicon-remove"></span></a></td>
 		 </tr>
 DELIMETER;
-		echo $product_in_admin_page;
+		echo $film_in_admin_page;
 		
 	}	
  }

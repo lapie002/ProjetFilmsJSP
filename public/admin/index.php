@@ -44,9 +44,9 @@ redirect("../../index.php");
 					{
 							include(TEMPLATE_BACK . DS . "/orders.php");
 					}
-					if(isset($_GET['products']))
+					if(isset($_GET['films']))
 					{
-							include(TEMPLATE_BACK . DS . "/products.php");
+							include(TEMPLATE_BACK . DS . "/films.php");
 					}
 					if(isset($_GET['add_product']))
 					{
