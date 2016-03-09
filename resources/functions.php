@@ -174,30 +174,34 @@ DELIMETER;
  
   /*******************************Add products in Admin *****************/
  
- function add_product()
+ function add_film()
  {
  
 	if(isset($_POST['publish']))
 	{
 	
-		$product_title        = escape_string($_POST['product_title']);
-		$product_category_id  = escape_string($_POST['product_category_id']);
-		$product_price        = escape_string($_POST['product_price']);
-		$product_quantity     = escape_string($_POST['product_quantity']);
-		$product_description  = escape_string($_POST['product_description']);
-		$short_desc           = escape_string($_POST['short_desc']);
+		$film_realisateur     = escape_string($_POST['IDREALISATEUR']);
+		$film_genre_id        = escape_string($_POST['IDGENRE']);
+        $film_title           = escape_string($_POST['TITREFILM']);
+		$film_price           = escape_string($_POST['PRIXFILMLOCATION']);
+		$film_quantity        = escape_string($_POST['NBEXPDISPFILM']);
+		$film_description_lg  = escape_string($_POST['RESUMELONGFILM']);
+		$film_description_lg  = escape_string($_POST['RESUMECOURTFILM']);
 		
 		
-		$product_image        = $_FILES['file']['name'];
+		$film_image        = $_FILES['file']['name'];
 		$image_temp_location  = $_FILES['file']['tmp_name'];
 		
-		move_uploaded_file($image_temp_location, UPLOAD_DIRECTORY . DS . $product_image);
+		move_uploaded_file($image_temp_location, UPLOAD_DIRECTORY . DS . $film_image);
 		
-		$query = query("INSERT INTO products (product_title, product_category_id, product_price, product_quantity, product_description, short_desc , product_image) VALUES('{$product_title}', '{$product_category_id}','{$product_price}','{$product_quantity}','{$product_description}','{$short_desc}','{$product_image}')");
+		$query = query("INSERT INTO FILM (IDREALISATEUR, IDGENRE, TITREFILM, PRIXFILMLOCATION, NBEXPDISPFILM, RESUMELONGFILM, RESUMECOURTFILM, IMAGEFILM) VALUES('{$film_realisateur}', '{$film_genre_id}','{$film_title}','{$film_price}','{$film_quantity}','{$film_description_lg}','{$film_description_lg},'{$film_image}')");
+        
+        
+        
 		$last_id = last_id();
 		confirm($query);
-		set_message("New Product with id: {$last_id} was successfully added!");
-		redirect("index.php?products");
+		set_message("New Film with id: {$last_id} was successfully added!");
+		redirect("index.php?films");
 	}
  
  
@@ -205,19 +209,19 @@ DELIMETER;
 
 
  
-function show_categories_add_product_page()
+function show_genres_add_film_page()
  {
-	$query = query("SELECT * FROM categories");
+	$query = query("SELECT * FROM GENRE");
 	confirm($query);
 	
 	while($row = fetch_array($query))
 	{
-		$categories_options = <<<DELIMETER
+		$genres_options = <<<DELIMETER
 		
-		<option value="{$row['cat_id']}">{$row['cat_title']}</option>
+		<option value="{$row['IDGENRE']}">{$row['NOMGENRE']}</option>
 		
 DELIMETER;
-echo $categories_options;
+echo $genres_options;
 		
 	}
  
