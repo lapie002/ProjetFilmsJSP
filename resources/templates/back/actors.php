@@ -11,24 +11,23 @@
     <form action="" method="post">
         <div class="form-group">
             <label for="realisateur-nom">Actor last name</label>
-            <input name="NOMREALISATEUR" type="text" class="form-control">
+            <input name="NOMACTEUR" type="text" class="form-control">
         </div>
         
         <div class="form-group">
             <label for="realisateur-prenom">Actor first name</label>
-            <input name="PRENOMREALISATEUR" type="text" class="form-control">
+            <input name="PRENOMACTEUR" type="text" class="form-control">
         </div>
         
         <div class="form-group">
             <label for="realisateur-image">Actor's Image</label>
-            <input type="file" name="file">
+            <input type="file" name="IMAGEACTEUR">
         </div>
 
         <div class="form-group">
             <input name="add_actor" type="submit" class="btn btn-primary" value="Add Actor">
         </div>      
     </form>
-
 
 </div>
 

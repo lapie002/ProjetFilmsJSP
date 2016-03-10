@@ -392,58 +392,7 @@ DELIMETER;
  }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*******************************Add Directors in Admin *****************/
+/*******************************Add Actors in Admin *****************/
  
  function add_actor()
  {
@@ -468,9 +417,9 @@ DELIMETER;
  }
 
 
- /********************** Directors in Admin **************************/
+ /********************** Actors in Admin **************************/
  
- function show_directors_in_admin()
+ function show_actors_in_admin()
  {
 	$query = "SELECT * FROM ACTEUR";
 	$actor_query = query($query);
@@ -488,9 +437,9 @@ DELIMETER;
 		<tr>
             <td>{$id_actor}</td>
             <td>{$nom_actor}</td>
-            <td>{$prenom_prenom_actor}</td>
+            <td>{$prenom_actor}</td>
             <td><img height="62" width="62" src="../../resources/{$image_actor}" alt=""></td>
-			<td><a class="btn btn-danger" href="../../resources/templates/back/delete_actor.php?id={$row['IMAGEACTEUR']}"><span class="glyphicon glyphicon-remove"></span></a></td>
+			<td><a class="btn btn-danger" href="../../resources/templates/back/delete_actor.php?id={$row['IDACTEUR']}"><span class="glyphicon glyphicon-remove"></span></a></td>
         </tr>
 DELIMETER;
 		
@@ -498,7 +447,7 @@ DELIMETER;
 	}
  }
 
-
+/******************************************************************************************************/
 
 
 
