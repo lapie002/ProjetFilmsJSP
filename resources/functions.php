@@ -427,6 +427,107 @@ DELIMETER;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*******************************Add Directors in Admin *****************/
+ 
+ function add_actor()
+ {
+ 
+	if(isset($_POST['add_actor']))
+	{
+		$nom_actor     = escape_string($_POST['NOMACTEUR']);
+		$prenom_actor  = escape_string($_POST['PRENOMACTEUR']);
+   
+		$actor_image          = $_FILES['file']['name'];
+		$image_temp_location  = $_FILES['file']['tmp_name'];
+		
+        move_uploaded_file($image_temp_location, UPLOAD_DIRECTORY . DS . $actor_image);
+		
+        $query = query("INSERT INTO ACTEUR (NOMACTEUR, PRENOMACTEUR, IMAGEACTEUR) VALUES('{$nom_actor}', '{$prenom_actor}','{$actor_image}')");
+        
+		$last_id = last_id();
+		confirm($query);
+		set_message("New Actor with id: {$last_id} was successfully added!");
+		redirect("index.php?actors");
+	}
+ }
+
+
+ /********************** Directors in Admin **************************/
+ 
+ function show_directors_in_admin()
+ {
+	$query = "SELECT * FROM ACTEUR";
+	$actor_query = query($query);
+	confirm($actor_query);
+	
+	while($row = fetch_array($actor_query))
+	{
+		$id_actor      = $row['IDACTEUR'];
+		$nom_actor     = $row['NOMACTEUR'];
+        $prenom_actor  = $row['PRENOMACTEUR'];
+        $image_actor   = display_image($row['IMAGEACTEUR']);
+		
+		$actor_in_admin_page = <<<DELIMETER
+		
+		<tr>
+            <td>{$id_actor}</td>
+            <td>{$nom_actor}</td>
+            <td>{$prenom_prenom_actor}</td>
+            <td><img height="62" width="62" src="../../resources/{$image_actor}" alt=""></td>
+			<td><a class="btn btn-danger" href="../../resources/templates/back/delete_actor.php?id={$row['IMAGEACTEUR']}"><span class="glyphicon glyphicon-remove"></span></a></td>
+        </tr>
+DELIMETER;
+		
+	echo $actor_in_admin_page;
+	}
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
  
  

@@ -10,22 +10,22 @@
 	
     <form action="" method="post">
         <div class="form-group">
-            <label for="realisateur-nom">Director's last name</label>
+            <label for="realisateur-nom">Actor last name</label>
             <input name="NOMREALISATEUR" type="text" class="form-control">
         </div>
         
         <div class="form-group">
-            <label for="realisateur-prenom">Director's first name</label>
+            <label for="realisateur-prenom">Actor first name</label>
             <input name="PRENOMREALISATEUR" type="text" class="form-control">
         </div>
         
         <div class="form-group">
-            <label for="realisateur-image">Director's Image</label>
+            <label for="realisateur-image">Actor's Image</label>
             <input type="file" name="file">
         </div>
 
         <div class="form-group">
-            <input name="add_director" type="submit" class="btn btn-primary" value="Add Director">
+            <input name="add_actor" type="submit" class="btn btn-primary" value="Add Actor">
         </div>      
     </form>
 
@@ -41,7 +41,7 @@
                 <th>id</th>
                 <th>last name</th>
                 <th>first name</th>
-                <th>Director's picture</th>
+                <th>Actor's picture</th>
             </tr>
         </thead>
 
