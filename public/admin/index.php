@@ -52,9 +52,13 @@ redirect("../../index.php");
 					{
 							include(TEMPLATE_BACK . DS . "/add_film.php");
 					}
-					if(isset($_GET['edit_product']))
+					if(isset($_GET['directors']))
 					{
-							include(TEMPLATE_BACK . DS . "/edit_product.php");
+							include(TEMPLATE_BACK . DS . "/directors.php");
+					}
+                    if(isset($_GET['actors']))
+					{
+							include(TEMPLATE_BACK . DS . "/actors.php");
 					}
 					if(isset($_GET['genres']))
 					{

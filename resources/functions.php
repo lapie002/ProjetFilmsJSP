@@ -335,6 +335,98 @@ DELIMETER;
 	}
  }
 
+
+/*******************************Add Directors in Admin *****************/
+ 
+ function add_director()
+ {
+ 
+	if(isset($_POST['add_director']))
+	{
+		$nom_realisateur     = escape_string($_POST['NOMREALISATEUR']);
+		$prenom_realisateur  = escape_string($_POST['PRENOMREALISATEUR']);
+   
+		$director_image       = $_FILES['file']['name'];
+		$image_temp_location  = $_FILES['file']['tmp_name'];
+		
+        move_uploaded_file($image_temp_location, UPLOAD_DIRECTORY . DS . $director_image);
+		
+        $query = query("INSERT INTO REALISATEUR (NOMREALISATEUR, PRENOMREALISATEUR, IMAGEREALISATEUR) VALUES('{$nom_realisateur}', '{$prenom_realisateur}','{$director_image}')");
+        
+		$last_id = last_id();
+		confirm($query);
+		set_message("New Director with id: {$last_id} was successfully added!");
+		redirect("index.php?directors");
+	}
+ }
+
+
+ /********************** Directors in Admin **************************/
+ 
+ function show_directors_in_admin()
+ {
+	$query = "SELECT * FROM REALISATEUR";
+	$director_query = query($query);
+	confirm($director_query);
+	
+	while($row = fetch_array($director_query))
+	{
+		$id_realisateur      = $row['IDREALISATEUR'];
+		$nom_realisateur     = $row['NOMREALISATEUR'];
+        $prenom_realisateur  = $row['PRENOMREALISATEUR'];
+        $image_realisateur   = display_image($row['IMAGEREALISATEUR']);
+		
+		$director_in_admin_page = <<<DELIMETER
+		
+		<tr>
+            <td>{$id_realisateur}</td>
+            <td>{$nom_realisateur}</td>
+            <td>{$prenom_realisateur}</td>
+            <td><img height="62" width="62" src="../../resources/{$image_realisateur}" alt=""></td>
+			<td><a class="btn btn-danger" href="../../resources/templates/back/delete_director.php?id={$row['IDREALISATEUR']}"><span class="glyphicon glyphicon-remove"></span></a></td>
+        </tr>
+DELIMETER;
+		
+	echo $director_in_admin_page;
+	}
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
  
  

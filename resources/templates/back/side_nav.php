@@ -30,27 +30,11 @@
             </li>
             <!-- Pour Director -->
             <li>
-            <a href="javascript:;" data-toggle="collapse" data-target="#director"><i class="fa fa-fw fa-video-camera fa-lg"></i> Directors<i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="director" class="collapse">
-                            <li>
-                                <a href="index.php?directors"><i class="fa fa-fw fa-video-camera"></i> View Directors</a>
-                            </li>
-                            <li>
-                                <a href="index.php?add_product"><i class="fa fa-fw fa-plus-square"></i> Add a Director</a>
-                            </li>
-                        </ul>
+                <a href="index.php?directors"><i class="fa fa-fw fa-video-camera"></i> Directors</a>
             </li>
             <!-- Pour Actor -->
             <li>
-            <a href="javascript:;" data-toggle="collapse" data-target="#actor"><i class="fa fa-fw fa-star fa-lg"></i> Actors<i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="actor" class="collapse">
-                            <li>
-                                <a href="index.php?actors"><i class="fa fa-fw fa-star"></i> View Actors</a>
-                            </li>
-                            <li>
-                                <a href="index.php?add_actor"><i class="fa fa-fw fa-plus-square"></i> Add an Actor</a>
-                            </li>
-                        </ul>
+                <a href="index.php?actors"><i class="fa fa-fw fa-star"></i> Actors</a>
             </li>
             <!-- Pour Admin -->
             <li>
