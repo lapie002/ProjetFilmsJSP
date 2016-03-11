@@ -152,23 +152,22 @@ DELIMETER;
  
 	if(isset($_POST['publish']))
 	{
+
+		$film_realisateur     = escape_string($_POST['idrealisateur']);
+		$film_genre_id        = escape_string($_POST['idgenre']);
+        $film_title           = escape_string($_POST['titrefilm']);
+		$film_price           = escape_string($_POST['prixfilmlocation']);
+		$film_quantity        = escape_string($_POST['nbexpdispfilm']);
+		$film_description_lg  = escape_string($_POST['resumelongfilm']);
+		$film_description_sm  = escape_string($_POST['resumecourtfilm']);
+      
 	
-		$film_realisateur     = escape_string($_POST['IDREALISATEUR']);
-		$film_genre_id        = escape_string($_POST['IDGENRE']);
-        $film_title           = escape_string($_POST['TITREFILM']);
-		$film_price           = escape_string($_POST['PRIXFILMLOCATION']);
-		$film_quantity        = escape_string($_POST['NBEXPDISPFILM']);
-		$film_description_lg  = escape_string($_POST['RESUMELONGFILM']);
-		$film_description_lg  = escape_string($_POST['RESUMECOURTFILM']);
-		
-		
-		$film_image        = $_FILES['file']['name'];
+		$film_image           = $_FILES['file']['name'];
 		$image_temp_location  = $_FILES['file']['tmp_name'];
 		
 		move_uploaded_file($image_temp_location, UPLOAD_DIRECTORY . DS . $film_image);
 		
-		$query = query("INSERT INTO FILM (IDREALISATEUR, IDGENRE, TITREFILM, PRIXFILMLOCATION, NBEXPDISPFILM, RESUMELONGFILM, RESUMECOURTFILM, IMAGEFILM) VALUES('{$film_realisateur}', '{$film_genre_id}','{$film_title}','{$film_price}','{$film_quantity}','{$film_description_lg}','{$film_description_lg},'{$film_image}')");
-        
+		$query = query("INSERT INTO FILM (IDREALISATEUR, IDGENRE, TITREFILM, PRIXFILMLOCATION, NBEXPDISPFILM, RESUMELONGFILM, RESUMECOURTFILM, IMAGEFILM) VALUES('{$film_realisateur}','{$film_genre_id}','{$film_title}','{$film_price}','{$film_quantity}','{$film_description_lg}','{$film_description_sm}','{$film_image}')");
         
         
 		$last_id = last_id();
@@ -195,6 +194,45 @@ function show_genres_add_film_page()
 		
 DELIMETER;
 echo $genres_options;
+		
+	}
+ 
+ }
+
+
+ 
+function show_director_add_film_page()
+ {
+	$query = query("SELECT * FROM REALISATEUR");
+	confirm($query);
+	
+	while($row = fetch_array($query))
+	{
+		$directors_options = <<<DELIMETER
+		
+		<option value="{$row['IDREALISATEUR']}">{$row['PRENOMREALISATEUR']}  {$row['NOMREALISATEUR']}</option>
+		
+DELIMETER;
+echo $directors_options;
+		
+	}
+ 
+ }
+
+
+function show_actors_add_film_page()
+ {
+	$query = query("SELECT * FROM ACTEUR");
+	confirm($query);
+	
+	while($row = fetch_array($query))
+	{
+		$actors_options = <<<DELIMETER
+		
+		<option value="{$row['IDACTEUR']}">{$row['PRENOMACTEUR']}  {$row['NOMACTEUR']}</option>
+		
+DELIMETER;
+echo $actors_options;
 		
 	}
  
@@ -346,10 +384,16 @@ DELIMETER;
 		$nom_realisateur     = escape_string($_POST['NOMREALISATEUR']);
 		$prenom_realisateur  = escape_string($_POST['PRENOMREALISATEUR']);
    
-		$director_image       = $_FILES['file']['name'];
+			
+		$director_image        = $_FILES['file']['name'];
 		$image_temp_location  = $_FILES['file']['tmp_name'];
+       // echo $director_image;
+       // echo "blqbqlq";
+       // echo $image_temp_location;
+        
+        
 		
-        move_uploaded_file($image_temp_location, UPLOAD_DIRECTORY . DS . $director_image);
+		move_uploaded_file($image_temp_location, UPLOAD_DIRECTORY . DS . $director_image);
 		
         $query = query("INSERT INTO REALISATEUR (NOMREALISATEUR, PRENOMREALISATEUR, IMAGEREALISATEUR) VALUES('{$nom_realisateur}', '{$prenom_realisateur}','{$director_image}')");
         
@@ -399,18 +443,18 @@ DELIMETER;
  
 	if(isset($_POST['add_actor']))
 	{
-		$nom_actor     = escape_string($_POST['NOMACTEUR']);
-		$prenom_actor  = escape_string($_POST['PRENOMACTEUR']);
+		$nom_actor     = escape_string($_POST['nomacteur']);
+		$prenom_actor  = escape_string($_POST['prenomacteur']);
    
 		$actor_image          = $_FILES['file']['name'];
 		$image_temp_location  = $_FILES['file']['tmp_name'];
 		
-        move_uploaded_file($image_temp_location, UPLOAD_DIRECTORY . DS . $actor_image);
+        move_uploaded_file($image_temp_location, $upload_directory . DS . $actor_image);
 		
-        $query = query("INSERT INTO ACTEUR (NOMACTEUR, PRENOMACTEUR, IMAGEACTEUR) VALUES('{$nom_actor}', '{$prenom_actor}','{$actor_image}')");
+        $query = query("INSERT INTO ACTEUR (nomacteur, prenomacteur, imageacteur) VALUES('{$nom_actor}', '{$prenom_actor}','{$actor_image}')");
+        confirm($query);
         
 		$last_id = last_id();
-		confirm($query);
 		set_message("New Actor with id: {$last_id} was successfully added!");
 		redirect("index.php?actors");
 	}

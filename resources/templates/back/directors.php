@@ -8,7 +8,7 @@
     
 	<h4 class="bg-success" align="center"><?php display_message(); ?></h4>
 	
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="realisateur-nom">Director last name</label>
             <input name="NOMREALISATEUR" type="text" class="form-control">
@@ -21,7 +21,7 @@
         
         <div class="form-group">
             <label for="realisateur-image">Director's Image</label>
-            <input type="file" name="file">
+            <input type="file" id="file" name="file">
         </div>
 
         <div class="form-group">

@@ -8,20 +8,20 @@
     
 	<h4 class="bg-success" align="center"><?php display_message(); ?></h4>
 	
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="realisateur-nom">Actor last name</label>
-            <input name="NOMACTEUR" type="text" class="form-control">
+            <input name="nomacteur" type="text" class="form-control">
         </div>
         
         <div class="form-group">
             <label for="realisateur-prenom">Actor first name</label>
-            <input name="PRENOMACTEUR" type="text" class="form-control">
+            <input name="prenomacteur" type="text" class="form-control">
         </div>
         
         <div class="form-group">
             <label for="realisateur-image">Actor's Image</label>
-            <input type="file" name="IMAGEACTEUR">
+            <input type="file" name="file">
         </div>
 
         <div class="form-group">

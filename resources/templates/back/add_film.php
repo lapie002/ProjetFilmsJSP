@@ -18,19 +18,18 @@
 
     <div class="form-group">
         <label for="product-title">Film Title </label>
-            <input type="text" name="TITREFILM" class="form-control">
+            <input type="text" name="titrefilm" class="form-control">
     </div>
-
 
     <div class="form-group">
            <label for="product-title">Film Description</label>
-      <textarea name="RESUMELONGFILM" id="" cols="30" rows="1" class="form-control"></textarea>
+      <textarea name="resumelongfilm" id="" cols="30" rows="1" class="form-control"></textarea>
 	  
     </div>
 	
 	<div class="form-group">
            <label for="product-title">Film Short Description</label>
-      <textarea name="RESUMECOURTFILM" id="" cols="30" rows="1" class="form-control"></textarea>
+      <textarea name="resumecourtfilm" id="" cols="30" rows="1" class="form-control"></textarea>
 	  
     </div>
 
@@ -42,13 +41,13 @@
         <label for="product-price">Film Price</label>
         <div class="form-group input-group">  
         <span class="input-group-addon"><i class="fa fa-eur"></i></span>
-        <input type="number" name="PRIXFILMLOCATION" class="form-control" size="60">
+        <input type="number" name="prixfilmlocation" class="form-control" size="60">
         </div>
       </div>
 	  
 	  <div class="col-xs-6">
         <label for="product-quantity">Film Quantity</label>
-        <input type="number" name="NBEXPDISPFILM" class="form-control" size="60">
+        <input type="number" name="nbexpdispfilm" class="form-control" size="60">
       </div>
     </div>
     
@@ -57,9 +56,9 @@
             <!-- Film Actors a Modifier -->
             <div class="form-group">
                 <label for="product-title">Actors</label>
-                <select name="IDGENRE" id="" class="form-control" multiple>
-                    <option value="">Select Genre</option>
-                    <?php show_genres_add_film_page();  ?>
+                <select name="idactor" id="" class="form-control" multiple>
+                    <!-- <option value="">Select Actors</option> -->
+                    <?php show_actors_add_film_page();  ?>
                 </select>
             </div>
          </div>
@@ -77,7 +76,7 @@
      <!-- Film Genres-->
     <div class="form-group">
         <label for="product-title">Film Genre</label>
-        <select name="IDGENRE" id="" class="form-control">
+        <select name="idgenre" id="idgenre" class="form-control">
             <option value="">Select Genre</option>
 			<?php show_genres_add_film_page();  ?>
         </select>
@@ -86,9 +85,9 @@
     <!-- Film Realisateurs-->
     <div class="form-group">
       <label for="product-title">Film Director</label>
-         <select name="IDREALISATEUR" id="" class="form-control">
+         <select name="idrealisateur" id="idrealisateur" class="form-control">
             <option value="">Select Director</option>
-             <?php show_genres_add_film_page();  ?>
+             <?php show_director_add_film_page();  ?>
          </select>
     </div>
     
@@ -106,6 +105,7 @@
             <!-- <input type="submit" name="draft" class="btn btn-warning btn-lg" value="Draft"> -->
             <input type="submit" name="publish" class="btn btn-primary btn-lg" value="Publish">
     </div>
+    
     
 </aside><!--SIDEBAR-->
 
