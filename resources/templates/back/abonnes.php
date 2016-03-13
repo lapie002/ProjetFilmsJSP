@@ -2,11 +2,11 @@
                     <div class="col-lg-12">
                       
 
-                        <h1 class="page-header">Admins</h1>
+                        <h1 class="page-header">Members</h1>
 						
                           <p class="bg-success"></p>
 
-                        <a href="index.php?add_admin" class="btn btn-primary">Add Admin</a>
+                       <!--  <a href="index.php?add_admin" class="btn btn-primary">Add Member</a> -->
 
 
                         <div class="col-md-12">
@@ -15,9 +15,10 @@
                                 <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Username</th>
-                                        <th>Photo</th>
+                                        <th>Name</th>
+                                        <th>First Name</th>
                                         <th>Email</th>
+                                        <th>Switch</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -26,7 +27,7 @@
 
                                    
 
-                                    <?php display_admins(); ?>  
+                                    <?php display_members(); ?>  
                                         
                                         
                                        

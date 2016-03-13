@@ -1,17 +1,5 @@
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav side-nav">
-            <!-- Pour Users -->
-            <li>
-            <a href="javascript:;" data-toggle="collapse" data-target="#user"><i class="fa fa-fw fa-users"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="user" class="collapse">
-                            <li>
-                                <a href="index.php?prospects"><i class="fa fa-fw fa-user-plus"></i> Request Membership</a>
-                            </li>
-                            <li>
-                                <a href="index.php?members"><i class="fa fa-fw fa-users"></i> View Members</a>
-                            </li>
-                        </ul>
-            </li>
             <!-- Pour Films -->
             <li>
             <a href="javascript:;" data-toggle="collapse" data-target="#film"><i class="fa fa-fw fa-film fa-lg"></i> Movies <i class="fa fa-fw fa-caret-down"></i></a>
@@ -40,6 +28,9 @@
             <li>
                 <a href="index.php?admins"><i class="fa fa-fw fa-user"></i>Admin</a>
             </li>
+            <!-- Pour Users -->
+            <li>
+                <a href="index.php?abonnes"><i class="fa fa-fw fa-users"></i> Manage Users</a>
             </li>
             <!-- Pour Orders -->
 			<li class="">

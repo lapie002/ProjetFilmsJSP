@@ -160,7 +160,10 @@ DELIMETER;
 		$film_quantity        = escape_string($_POST['nbexpdispfilm']);
 		$film_description_lg  = escape_string($_POST['resumelongfilm']);
 		$film_description_sm  = escape_string($_POST['resumecourtfilm']);
-      
+        
+        $film_actors_id       = escape_string($_POST['idactors']);
+        
+        /*var_dump($film_realisateur);*/
 	
 		$film_image           = $_FILES['file']['name'];
 		$image_temp_location  = $_FILES['file']['tmp_name'];
@@ -172,6 +175,13 @@ DELIMETER;
         
 		$last_id = last_id();
 		confirm($query);
+        
+        foreach($film_actors_id as $valeur)
+        {
+            $query_actors = query("INSERT INTO JOUER (IDFILM, IDACTEUR) VALUES('{$last_id}','{$valeur}')");
+            confirm($query_actors);   
+        }
+        
 		set_message("New Film with id: {$last_id} was successfully added!");
 		redirect("index.php?films");
 	}
@@ -228,7 +238,7 @@ function show_actors_add_film_page()
 	while($row = fetch_array($query))
 	{
 		$actors_options = <<<DELIMETER
-		
+        
 		<option value="{$row['IDACTEUR']}">{$row['PRENOMACTEUR']}  {$row['NOMACTEUR']}</option>
 		
 DELIMETER;
@@ -237,6 +247,14 @@ echo $actors_options;
 	}
  
  }
+
+
+/*function insert_actorsByFilm($idFilm,$idActor)
+ {
+		$query = query("INSERT INTO JOUER (IDFILM, IDACTEUR) VALUES('{$idFilm}','{$idActor}')");
+        confirm($query);
+ }*/
+
  
  
  
@@ -491,10 +509,42 @@ DELIMETER;
 	}
  }
 
+
+
 /******************************************************************************************************/
 
 
-
+function display_members()
+{
+    $query = "SELECT * FROM ABONNE";
+	$abonne_query = query($query);
+	confirm($abonne_query);
+    
+    while($row = fetch_array($abonne_query))
+	{
+		$abonne_id = $row['IDABONNE'];
+		$abonneName = $row['NOMABONNE'];
+        $abonneFirstname = $row['PRENOMABONNE'];
+		$abonneEmail = $row['ABONNEEMAIL'];
+		$abonneCheck = $row['ABONNECHECK'];
+		
+		
+		$abonnes = <<<DELIMETER
+		
+		<tr>
+            <td>{$abonne_id}</td>
+            <td>{$abonneName}</td>
+			<td>{$abonneFirstname}</td>
+			<td>{$abonneEmail}</td>
+            <td><input type="checkbox" name="my-checkbox" {$abonneCheck}></td>
+			<td><a class="btn btn-danger" href="../../resources/templates/back/delete_abonne.php?id={$row['IDABONNE']}"><span class="glyphicon glyphicon-remove"></span></a></td>
+        </tr>
+DELIMETER;
+		
+	echo $abonnes;
+	}
+    
+}
 
 
 

@@ -56,7 +56,7 @@
             <!-- Film Actors a Modifier -->
             <div class="form-group">
                 <label for="product-title">Actors</label>
-                <select name="idactor" id="" class="form-control" multiple>
+                <select multiple name='idactors[]' id="" class="form-control">
                     <!-- <option value="">Select Actors</option> -->
                     <?php show_actors_add_film_page();  ?>
                 </select>

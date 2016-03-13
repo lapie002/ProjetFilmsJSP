@@ -40,9 +40,9 @@ redirect("../../index.php");
 							include(TEMPLATE_BACK . DS . "/admin_content.php");
 					}
 						
-					if(isset($_GET['orders']))
+					if(isset($_GET['abonnes']))
 					{
-							include(TEMPLATE_BACK . DS . "/orders.php");
+							include(TEMPLATE_BACK . DS . "/abonnes.php");
 					}
 					if(isset($_GET['films']))
 					{
