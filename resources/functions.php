@@ -161,7 +161,7 @@ DELIMETER;
 		$film_description_lg  = escape_string($_POST['resumelongfilm']);
 		$film_description_sm  = escape_string($_POST['resumecourtfilm']);
         
-        $film_actors_id       = escape_string($_POST['idactors']);
+        $film_actors_id       = $_POST['idactors'];
         
         /*var_dump($film_realisateur);*/
 	
