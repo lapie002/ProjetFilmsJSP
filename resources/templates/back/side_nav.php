@@ -34,11 +34,11 @@
             </li>
             <!-- Pour Orders -->
 			<li class="">
-				<a href="index.php?#######"><i class="fa fa-fw fa-credit-card"></i> Orders</a>
+				<a href="index.php?orders"><i class="fa fa-fw fa-credit-card"></i> Orders</a>
 			</li>
             <!-- Pour Reports -->
-			<li class="">
+			<!-- <li class="">
 				<a href="index.php?########"><i class="fa fa-fw fa-ticket"></i> Reports</a>
-			</li>
+			</li> -->
 		</ul>
 	</div>

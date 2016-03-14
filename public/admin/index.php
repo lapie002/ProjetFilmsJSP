@@ -76,9 +76,9 @@ redirect("../../index.php");
 					{
 							include(TEMPLATE_BACK . DS . "/edit_user.php");
 					}
-					if(isset($_GET['reports']))
+					if(isset($_GET['orders']))
 					{
-							include(TEMPLATE_BACK . DS . "/reports.php");
+							include(TEMPLATE_BACK . DS . "/orders.php");
 					}
 
 					
