@@ -3,6 +3,10 @@
 	
 	if(isset($_GET['id']))
 	{
+        
+        $query_jouer = query("DELETE FROM JOUER WHERE IDFILM = " . escape_string($_GET['id']) . " ");
+		confirm($query_jouer);
+		
 	
 		$query = query("DELETE FROM FILM WHERE IDFILM = " . escape_string($_GET['id']) . " ");
 		confirm($query);
