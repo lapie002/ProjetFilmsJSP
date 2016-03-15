@@ -35,7 +35,7 @@ redirect("../../index.php");
 					
 					*/
 				
-					if($_SERVER['REQUEST_URI'] == "/ecom/public/admin/" || $_SERVER['REQUEST_URI'] == "/ecom/public/admin/index.php")
+					if($_SERVER['REQUEST_URI'] == "/projetfilmsjsp/public/admin/" || $_SERVER['REQUEST_URI'] == "/projetfilmsjsp/public/admin/index.php")
 					{
 							include(TEMPLATE_BACK . DS . "/admin_content.php");
 					}
