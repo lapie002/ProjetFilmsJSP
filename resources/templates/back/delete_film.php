@@ -4,6 +4,10 @@
 	if(isset($_GET['id']))
 	{
         
+       /* a mettre en plae a condition de gerer la function display_orders() */
+       $query_louer = query("DELETE FROM LOUER WHERE IDFILM = " . escape_string($_GET['id']) . " ");
+       confirm($query_louer);
+    
         $query_jouer = query("DELETE FROM JOUER WHERE IDFILM = " . escape_string($_GET['id']) . " ");
 		confirm($query_jouer);
 		

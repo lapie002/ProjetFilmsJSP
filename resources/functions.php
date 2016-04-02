@@ -591,23 +591,36 @@ function display_orders()
             array_push($cart, $row['TITREFILM']);
         }
         
+        $myFilms = array(" "," "," ");
+        
+        foreach($cart as $key => $value)
+        {
+            $myFilms[$key] = $value;
+        } 
+        
+        
 		$film_by_abonnes = <<<DELIMETER
 		
 		<tr>
             <td>{$abonne_id}</td>
             <td>{$abonneName}</td>
 			<td>{$abonneFirstname}</td>
-            <td>{$cart[0]}</td>
-            <td>{$cart[1]}</td>
-            <td>{$cart[2]}</td>
+            
+            <td>{$myFilms[0]}</td>
+            <td>{$myFilms[1]}</td>
+            <td>{$myFilms[2]}</td>
             
 			<!-- <td><a class="btn btn-danger" href="../../resources/templates/back/delete_order.php?id={$row['IDABONNE']}"><span class="glyphicon glyphicon-remove"></span></a></td> -->
         </tr>
 DELIMETER;
         
+        /* on vide le tableau et on le redeclare pour pouvoir l utiliser*/
         unset($cart);
+        unset($myFilms);
+        
         $cart = array();
-		
+		$myFilms = array(" "," "," ");
+        
 	echo $film_by_abonnes; 
 	}
     
