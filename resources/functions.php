@@ -528,6 +528,18 @@ function display_members()
 		$abonneEmail = $row['ABONNEEMAIL'];
 		$abonneCheck = $row['ABONNECHECK'];
 		
+        
+        if($abonneCheck == 'checked')
+        {
+            $disabled_ajout_membre = 'disabled';
+            $abled_stop_membre = 'enable';
+        }
+        else
+        {
+            $disabled_ajout_membre = 'enable';
+            $abled_stop_membre = 'disabled';
+        }
+        
 		
 		$abonnes = <<<DELIMETER
 		
@@ -536,7 +548,12 @@ function display_members()
             <td>{$abonneName}</td>
 			<td>{$abonneFirstname}</td>
 			<td>{$abonneEmail}</td>
-            <td><input type="checkbox" name="my-checkbox" {$abonneCheck}></td>
+            <td><input type="checkbox" name="my-checkbox" value="check" {$abonneCheck}></a></td>
+            
+            <td><a class="btn btn-info {$disabled_ajout_membre}" href="../../resources/templates/back/check_abonne.php?id={$row['IDABONNE']}"><span class="glyphicon glyphicon-ok"></span></a></td>
+            
+            <td><a class="btn btn-warning {$abled_stop_membre}" href="../../resources/templates/back/stop_abonne.php?id={$row['IDABONNE']}"><span class="glyphicon glyphicon-ban-circle"></span></a></td>
+            
 			<td><a class="btn btn-danger" href="../../resources/templates/back/delete_abonne.php?id={$row['IDABONNE']}"><span class="glyphicon glyphicon-remove"></span></a></td>
         </tr>
 DELIMETER;

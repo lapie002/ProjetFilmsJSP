@@ -18,7 +18,10 @@
                                         <th>Name</th>
                                         <th>First Name</th>
                                         <th>Email</th>
-                                        <th>Switch</th>
+                                        <th>Can Rent</th>
+                                        <th>Accept</th>
+                                        <th>Stop</th>
+                                        <th>Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
