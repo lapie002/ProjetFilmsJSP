@@ -511,7 +511,7 @@ DELIMETER;
 
 
 
-/******************************************************************************************************/
+/***************************************** display Members *************************************************************/
 
 
 function display_members()
@@ -565,9 +565,76 @@ DELIMETER;
 
 
 
+/***************************************** display Orders *************************************************************/
 
 
+function display_orders()
+{
+    $cart = array();
+    
+    $query = "SELECT * FROM ABONNE";
+	$abonne_query = query($query);
+	confirm($abonne_query);
+    
+    while($row = fetch_array($abonne_query))
+	{
+		$abonne_id = $row['IDABONNE'];
+		$abonneName = $row['NOMABONNE'];
+        $abonneFirstname = $row['PRENOMABONNE'];
+        
+        $query_film = "SELECT * FROM FILM F, LOUER L WHERE F.IDFILM = L.IDFILM AND L.IDABONNE =" . $abonne_id ;
+	    $film_by_abonne_query = query($query_film);
+	    confirm($film_by_abonne_query);
+        
+        while($row = fetch_array($film_by_abonne_query))
+        {
+            array_push($cart, $row['TITREFILM']);
+        }
+        
+		$film_by_abonnes = <<<DELIMETER
+		
+		<tr>
+            <td>{$abonne_id}</td>
+            <td>{$abonneName}</td>
+			<td>{$abonneFirstname}</td>
+            <td>{$cart[0]}</td>
+            <td>{$cart[1]}</td>
+            <td>{$cart[2]}</td>
+            
+			<!-- <td><a class="btn btn-danger" href="../../resources/templates/back/delete_order.php?id={$row['IDABONNE']}"><span class="glyphicon glyphicon-remove"></span></a></td> -->
+        </tr>
+DELIMETER;
+        
+        unset($cart);
+        $cart = array();
+		
+	echo $film_by_abonnes; 
+	}
+    
+}
 
+/**************************Finalement inutile *****************************/
+
+
+function get_film_by_abonne($id)
+{
+    $query = "SELECT * FROM FILM F, LOUER L WHERE F.IDFILM = L.IDFILM AND L.IDABONNE = '{$id}' ";
+	$film_by_abonne_query = query($query);
+	confirm($film_by_abonne_query);
+    
+    while($row = fetch_array($film_by_abonne_query))
+	{
+		$titre_film = $row['TITREFILM'];
+		
+        $film_by_id = <<<DELIMETER
+        
+        <td>{$titre_film}</td>
+        
+DELIMETER;
+        
+        echo $film_by_id;
+    }
+}
 
 
 
