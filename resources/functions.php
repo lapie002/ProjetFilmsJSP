@@ -565,7 +565,7 @@ DELIMETER;
 
 
 
-/***************************************** display Orders *************************************************************/
+/***************************************** display Orders by Abonne ***********************************************/
 
 
 function display_orders()
@@ -626,7 +626,7 @@ DELIMETER;
     
 }
 
-/**************************Finalement inutile *****************************/
+/************************** Finalement inutile *****************************/
 
 
 function get_film_by_abonne($id)
@@ -662,6 +662,31 @@ DELIMETER;
 	}	
  }
  
+
+function show_actors_by_film_id($id_film)
+{
+        $query_actors = query("SELECT * FROM ACTEUR A, JOUER J WHERE A.IDACTEUR = J.IDACTEUR AND J.IDFILM = '{$id_film}' ");
+	    $actors_by_films = query($query_actors);
+	    confirm($actors_by_films);
+    
+        $actors = array();
+        
+        while($row = fetch_array($actors_by_films))
+        {
+            $actor_name = $row['PRENOMACTEUR'] . " " . $row['NOMACTEUR'] . " ";
+            
+            array_push($actors, $actor_name);
+        }
+    
+        foreach($actors as $value){return $value;}
+        
+         /* return $actors; */
+    
+        /* unset($actors);
+        $actors = array(); */
+}
+
+
 
  function get_film_by_id($id_film)
  {
