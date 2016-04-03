@@ -48,6 +48,10 @@ redirect("../../index.php");
 					{
 							include(TEMPLATE_BACK . DS . "/films.php");
 					}
+                	if(isset($_GET['un_film']))
+					{
+							include(TEMPLATE_BACK . DS . "/un_film.php");
+					}
 					if(isset($_GET['add_film']))
 					{
 							include(TEMPLATE_BACK . DS . "/add_film.php");

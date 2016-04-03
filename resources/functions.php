@@ -132,7 +132,7 @@ function last_id()
 		  <tr>
 		    <td>{$row['IDFILM']}</td>
             <td>{$row['TITREFILM']} <br>
-              <a href="index.php?edit_film&id={$row['IDFILM']}"><img height="62" width="62" src="../../resources/{$film_image}" alt=""></a>
+              <a href="index.php?un_film&id={$row['IDFILM']}"><img height="62" width="62" src="../../resources/{$film_image}" alt=""></a>
             </td>
             <td> {$genre} </td>
             <td>{$row['PRIXFILMLOCATION']}</td>
@@ -649,11 +649,65 @@ DELIMETER;
     }
 }
 
+/******************************** pour un_film.php ************************/
 
+ function show_film_realisateur_by_id($realisateur_id)
+ {
+	$query = query("SELECT * FROM REALISATEUR WHERE IDREALISATEUR = '{$realisateur_id}' ");
+	confirm($query);
+	
+	while($real_row  = fetch_array($query))
+	{
+		return $real_row['PRENOMREALISATEUR'] . " " . $real_row['NOMREALISATEUR'];
+	}	
+ }
+ 
 
+ function get_film_by_id($id_film)
+ {
+	$result = query("SELECT * FROM FILM WHERE IDFILM = '{$id_film}' ");
+	confirm($result);
+	
+	while($row = fetch_array($result))
+	{
+        
+        $id_film            = escape_string($row['IDFILM']);
+        $realisateur        = show_film_realisateur_by_id($row['IDREALISATEUR']);
+        $genre              = show_film_genre_title($row['IDGENRE']);
+        $titre_film         = escape_string($row['TITREFILM']);
+        $film_price         = escape_string($row['PRIXFILMLOCATION']);
+        $film_quantity      = escape_string($row['NBEXPDISPFILM']);
+        $film_description   = escape_string($row['RESUMELONGFILM']);
+        $film_desc          = escape_string($row['RESUMECOURTFILM']);
+        $film_image = display_image($row['IMAGEFILM']);
+        
+        
+		$film_page = <<<DELIMETER
+		  
+        <div class="col-md-6">
+            <img class="img-responsive" width="350" height="300" src="../resources/{$film_image}" alt="">
+        </div>
+        <div class="col-md-5">
+            <div class="thumbnail">
+                <div class="caption-full">
+                    <h4><a href="#">{$titre_film}</a> </h4>
+                    <hr>
+                    <h4 class="">Pirce : {$film_price}</h4>
+                    
+                    <p>{$film_desc}</p></br>
+                    <p>Quantity : {$film_quantity}</p></br>
+                    <p>director : {$film_quantity}</p></br>
+                    <p>genre : {$genre}</p></br>
+    </div>
+ 
+</div>
 
-
-
+</div>
+               
+DELIMETER;
+		echo $film_page;
+	}	
+ }
 
 
 
