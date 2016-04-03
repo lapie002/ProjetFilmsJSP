@@ -23,7 +23,7 @@
 
     <div class="form-group">
            <label for="product-title">Film Description</label>
-      <textarea name="resumelongfilm" id="" cols="30" rows="1" class="form-control"></textarea>
+      <textarea name="resumelongfilm" id="" cols="30" rows="10" class="form-control"></textarea>
 	  
     </div>
 	

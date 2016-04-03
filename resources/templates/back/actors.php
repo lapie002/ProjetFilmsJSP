@@ -20,8 +20,8 @@
         </div>
         
         <div class="form-group">
-            <label for="realisateur-image">Actor's Image</label>
-            <input type="file" name="file">
+            <label for="acteur-image">Actor's Image</label>
+            <input type="file" id="file" name="file">
         </div>
 
         <div class="form-group">

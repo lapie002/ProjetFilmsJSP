@@ -466,8 +466,8 @@ DELIMETER;
    
 		$actor_image          = $_FILES['file']['name'];
 		$image_temp_location  = $_FILES['file']['tmp_name'];
-		
-        move_uploaded_file($image_temp_location, $upload_directory . DS . $actor_image);
+        
+        move_uploaded_file($image_temp_location, UPLOAD_DIRECTORY . DS . $actor_image);
 		
         $query = query("INSERT INTO ACTEUR (nomacteur, prenomacteur, imageacteur) VALUES('{$nom_actor}', '{$prenom_actor}','{$actor_image}')");
         confirm($query);
