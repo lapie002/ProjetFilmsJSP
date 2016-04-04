@@ -739,13 +739,52 @@ DELIMETER;
 	}	
  }
 
+/***************************Les films pour les quels un acteurs  a jouer ***************************/
+
+function show_films_by_actor_id($id_actor)
+{
+        $query_films = query("SELECT * FROM FILM F, JOUER J WHERE F.IDFILM = J.IDFILM AND J.IDACTEUR = '{$id_actor}' ");
+	    confirm($query_films);
+    
+        $films = array();
+        
+        while($row = fetch_array($query_films))
+        {
+            $film_title = $row['TITREFILM'] . ", ";
+            
+            array_push($films, $film_title);
+        }
+    
+    
+        /* foreach($actors as $value){return $value;} */
+        
+        return $films; 
+    
+        /* unset($actors);
+        $actors = array(); */
+}
 
 
+/***************************Les films qu un realisateur a tourner  ***************************/
 
+function show_films_by_realisateur_id($id_realisateur)
+{
+        $query_films = query("SELECT * FROM FILM F, REALISATEUR R WHERE F.IDREALISATEUR = R.IDREALISATEUR AND R.IDREALISATEUR = '{$id_realisateur}' ");
+	    confirm($query_films);
+    
+        $films = array();
+        
+        while($row = fetch_array($query_films))
+        {
+            $film_title = $row['TITREFILM'] . ", ";
+            
+            array_push($films, $film_title);
+        }
+    
+        return $films; 
+    
 
-
-
-
+}
 
 
 

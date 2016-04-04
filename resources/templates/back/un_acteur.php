@@ -9,8 +9,9 @@
         {
 
             $id_acteur            = escape_string($row['IDACTEUR']);
-            $nom_acteur            = escape_string($row['NOMACTEUR']);
-            $prenom_acteur            = escape_string($row['PRENOMACTEUR']);
+            $films                = show_films_by_actor_id($row['IDACTEUR']);
+            $nom_acteur           = escape_string($row['NOMACTEUR']);
+            $prenom_acteur        = escape_string($row['PRENOMACTEUR']);
             $acteur_image         = display_image($row['IMAGEACTEUR']);
         }	   
     }
@@ -31,6 +32,12 @@
                     
                     <img class="img-responsive center-block" width="175" height="150" src="../../resources/<?php echo $acteur_image ?>" alt="">
                     <br>
+                    
+                    
+                    <p class="text-center">Films :  <?php foreach($films as $value){echo $value;} ?></p>
+                    
+                    
+                    
                     <div class="form-group text-center">
                         <a href="http://localhost/projetfilmsjsp/public/admin/index.php?actors" class="btn btn-primary">Go BACK</a>
                     </div>

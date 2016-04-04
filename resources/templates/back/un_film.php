@@ -39,9 +39,9 @@
                     
                     
                     <p>Quantity : <?php echo $film_quantity ?></p>
-                    <p>director : <?php echo $realisateur ?></p>
-                    <p>actors :  <?php foreach($actors as $value){echo $value;} ?></p>
-                    <p>genre :  <?php echo $genre ?></p>
+                    <p>Director : <?php echo $realisateur ?></p>
+                    <p>Actors :  <?php foreach($actors as $value){echo $value;} ?></p>
+                    <p>Genre :  <?php echo $genre ?></p>
                     <p>Synopsis :  <?php echo $film_desc ?></p>
                     
                     
