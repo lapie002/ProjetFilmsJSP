@@ -60,9 +60,17 @@ redirect("../../index.php");
 					{
 							include(TEMPLATE_BACK . DS . "/directors.php");
 					}
+                    if(isset($_GET['un_realisateur']))
+					{
+							include(TEMPLATE_BACK . DS . "/un_realisateur.php");
+					}
                     if(isset($_GET['actors']))
 					{
 							include(TEMPLATE_BACK . DS . "/actors.php");
+					}
+                    if(isset($_GET['un_acteur']))
+					{
+							include(TEMPLATE_BACK . DS . "/un_acteur.php");
 					}
 					if(isset($_GET['genres']))
 					{

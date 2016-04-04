@@ -449,7 +449,7 @@ DELIMETER;
             <td>{$id_realisateur}</td>
             <td>{$nom_realisateur}</td>
             <td>{$prenom_realisateur}</td>
-            <td><img height="62" width="62" src="../../resources/{$image_realisateur}" alt=""></td>
+            <td><a  href="index.php?un_realisateur&id={$id_realisateur}"><img height="62" width="62" src="../../resources/{$image_realisateur}" alt=""></a></td>
 			<td><a class="btn btn-danger" href="../../resources/templates/back/delete_director.php?id={$row['IDREALISATEUR']}"><span class="glyphicon glyphicon-remove"></span></a></td>
         </tr>
 DELIMETER;
@@ -505,7 +505,7 @@ DELIMETER;
             <td>{$id_actor}</td>
             <td>{$nom_actor}</td>
             <td>{$prenom_actor}</td>
-            <td><img height="62" width="62" src="../../resources/{$image_actor}" alt=""></td>
+            <td><a href="index.php?un_acteur&id={$id_actor}"><img height="62" width="62" src="../../resources/{$image_actor}" alt=""></a></td>
 			<td><a class="btn btn-danger" href="../../resources/templates/back/delete_actor.php?id={$row['IDACTEUR']}"><span class="glyphicon glyphicon-remove"></span></a></td>
         </tr>
 DELIMETER;
@@ -738,7 +738,6 @@ DELIMETER;
 		echo $film_page;
 	}	
  }
-
 
 
 

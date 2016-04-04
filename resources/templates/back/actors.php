@@ -1,6 +1,6 @@
 <?php add_actor(); ?>
 <h1 class="page-header">
-  ALL Directors
+  ALL Actors
 </h1>
 
 
