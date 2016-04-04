@@ -13,6 +13,11 @@ function redirect($location)
 function query($sql)
 {
 	global $connection;
+    
+     error_log("connection : ");
+    error_log(print_r($connection, TRUE));
+     error_log("sql ");
+    error_log(print_r($sql, TRUE));
 	
 	return mysqli_query($connection,$sql);
 }
@@ -666,21 +671,21 @@ DELIMETER;
 function show_actors_by_film_id($id_film)
 {
         $query_actors = query("SELECT * FROM ACTEUR A, JOUER J WHERE A.IDACTEUR = J.IDACTEUR AND J.IDFILM = '{$id_film}' ");
-	    $actors_by_films = query($query_actors);
-	    confirm($actors_by_films);
+	    confirm($query_actors);
     
         $actors = array();
         
-        while($row = fetch_array($actors_by_films))
+        while($row = fetch_array($query_actors))
         {
-            $actor_name = $row['PRENOMACTEUR'] . " " . $row['NOMACTEUR'] . " ";
+            $actor_name = $row['PRENOMACTEUR'] . " " . $row['NOMACTEUR'] . ", ";
             
             array_push($actors, $actor_name);
         }
     
-        foreach($actors as $value){return $value;}
+    
+        /* foreach($actors as $value){return $value;} */
         
-         /* return $actors; */
+        return $actors; 
     
         /* unset($actors);
         $actors = array(); */

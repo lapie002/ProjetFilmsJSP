@@ -10,7 +10,7 @@
 
             $id_film            = escape_string($row['IDFILM']);
             $realisateur        = show_film_realisateur_by_id($row['IDREALISATEUR']);
-            /* $actors             = show_actors_by_film_id($row['IDFILM']); */
+            $actors             = show_actors_by_film_id($row['IDFILM']); 
             $genre              = show_film_genre_title($row['IDGENRE']);
             $titre_film         = escape_string($row['TITREFILM']);
             $film_price         = escape_string($row['PRIXFILMLOCATION']);
@@ -40,7 +40,7 @@
                     
                     <p>Quantity : <?php echo $film_quantity ?></p>
                     <p>director : <?php echo $realisateur ?></p>
-                    <!-- <p>actors :  <?php  /* echo $actors */ ?></p> -->
+                    <p>actors :  <?php foreach($actors as $value){echo $value;} ?></p>
                     <p>genre :  <?php echo $genre ?></p>
                     <p>Synopsis :  <?php echo $film_desc ?></p>
                     
